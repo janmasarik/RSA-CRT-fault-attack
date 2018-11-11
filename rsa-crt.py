@@ -1,6 +1,5 @@
 import sys
 import hashlib
-from eulerlib import Divisors
 from math import gcd
 from cryptography.exceptions import InvalidSignature
 from cryptography.hazmat.backends import default_backend
@@ -30,7 +29,7 @@ def egcd(a, b):
 def modinv(a, m):
     g, x, y = egcd(a, m)
     if g != 1:
-        raise Exception("modular inverse does not exist")
+        raise ValueError("modular inverse does not exist")
     else:
         return x % m
 
@@ -92,6 +91,7 @@ if __name__ == "__main__":
     malicious_signature = private_key.sign(
         malicious_message, padding.PKCS1v15(), hashes.SHA256()
     )
-    with open("evil_signature.sha256", "wb") as f:
+
+    with open("malicious_sig.sha256", "wb") as f:
         f.write(malicious_signature)
-    print("Very very very malicious signature saved to evil_signature.sha256")
+    print("Very very very malicious signature saved to malicious_sig.sha256")
