@@ -10,10 +10,10 @@ Detailed attack described here: https://www.cryptologie.net/article/371/fault-at
 ## Usage
 Sign malicious_message.txt using following parameters
 ```python
-python3 ../rsa-crt.py public_key.pem message.txt message_sig.sha256 malicious_message.txt
+python3 rsa-crt.py public_key.pem message.txt message_sig.sha256 malicious_message.txt
 ```
 
-Requires module cryptography (only good python package for crypto). If you don't have it yet, install it with 
+Requires module cryptography (*the* python package for crypto). If you don't have it yet, install it with 
 ```
 pip3 install cryptography
 ```
